@@ -1,0 +1,17 @@
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\DfQuantycaDocuments.dll.config
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\DfQuantycaDocuments.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\DfQuantycaDocuments.pdb
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\Newtonsoft.Json.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Net.Http.Formatting.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.WebHost.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\Newtonsoft.Json.xml
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Net.Http.Formatting.xml
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.xml
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.WebHost.xml
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.csprojResolveAssemblyReference.cache
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.csproj.CoreCompileInputs.cache
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.dll
+D:\Workspace\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.pdb
