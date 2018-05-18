@@ -12,6 +12,7 @@ using System.Configuration;
 using DfQuantycaDocuments.Helpers;
 using DfQuantycaDocuments.Models;
 using System.IO;
+using System.Web.Http.Tracing;
 
 namespace DfQuantycaDocuments.Controllers
 {
@@ -23,12 +24,34 @@ namespace DfQuantycaDocuments.Controllers
         public DfUbyquoController()
         {
             ubyquoImportPath = ConfigurationManager.AppSettings.Get("ubyquoImportPath");
+
+        }
+
+        
+        private void WriteToTrace(string category, string log, System.Web.Http.Tracing.TraceLevel level)
+
+        {
+
+            ITraceWriter trceriter = Configuration.Services.GetTraceWriter();
+            
+            if (trceriter != null)
+            {
+                trceriter.Trace(
+                    Request, category, level,
+                    (traceRecord) =>
+                    {
+                        traceRecord.Message =
+                            String.Format("DfQuantycaDocuments Log: {0}", log);
+                    });
+            }
         }
 
         [Route("docs/upload/")]
         [HttpPost]
         public async Task<IHttpActionResult> uploadDocument()
         {
+            WriteToTrace("Controllers", "Start upload document", System.Web.Http.Tracing.TraceLevel.Info);
+
 
             Dictionary<string, string> attributes = new Dictionary<string, string>();
             Dictionary<string, byte[]> files = new Dictionary<string, byte[]>();
@@ -48,6 +71,7 @@ namespace DfQuantycaDocuments.Controllers
                             files.Add(filename, buffer);
                         else
                         {
+                            WriteToTrace("Controllers", "Only accept single file", System.Web.Http.Tracing.TraceLevel.Error);
                             return BadRequest("Only accept single file");
                         }
                     }
@@ -72,6 +96,7 @@ namespace DfQuantycaDocuments.Controllers
                             }
                             else
                             {
+                                WriteToTrace("Controllers", "Invalid parameter", System.Web.Http.Tracing.TraceLevel.Error);
                                 return BadRequest("Invalid parameter");
                             }
 
@@ -80,7 +105,11 @@ namespace DfQuantycaDocuments.Controllers
                 }
 
                 if(attributes.Count() != 5)
+                {
+                    WriteToTrace("Controllers", "Invalid parameter", System.Web.Http.Tracing.TraceLevel.Error);
                     return BadRequest("Missing parameters");
+                }
+                    
 
                 //Read Ubyquo Import Index.xml File
 
@@ -88,12 +117,7 @@ namespace DfQuantycaDocuments.Controllers
 
                 if (!File.Exists(fullUbyquoImportPath))
                 {
-                    using (EventLog eventLog = new EventLog("Application"))
-                    {
-                        eventLog.Source = "Application";
-                        eventLog.WriteEntry("Error loading Index.xml from " + ubyquoImportPath + "\\Index.xml", EventLogEntryType.Error);
-                    }
-
+                    WriteToTrace("Controllers", "Error loading Index.xml from " + ubyquoImportPath + "\\Index.xml", System.Web.Http.Tracing.TraceLevel.Error);
                     return InternalServerError();
                 }
 
@@ -116,23 +140,33 @@ namespace DfQuantycaDocuments.Controllers
                     folderPath = folderPath + "\\Factura Emitida\\";
                 }
 
-                folderPath = ConfigurationManager.AppSettings.Get("ubyquoRootPath") + "\\"+ folderPath;
+                folderPath = ConfigurationManager.AppSettings.Get("ubyquoImportPath") + "\\"+ folderPath;
                 var newFileName = Guid.NewGuid().ToString() + ".pdf";
 
+                WriteToTrace("Controllers", "Try to create file in: " + folderPath + newFileName, System.Web.Http.Tracing.TraceLevel.Info);
                 File.WriteAllBytes(folderPath + newFileName, files.FirstOrDefault().Value);
 
+                WriteToTrace("Controllers","File upload success", System.Web.Http.Tracing.TraceLevel.Info);
                 return Ok();
                 
             }
             catch (Exception Ex)
             {
-                using (EventLog eventLog = new EventLog("Application"))
-                {
-                    eventLog.Source = "Application";
-                    eventLog.WriteEntry(Ex.Message.ToString(), EventLogEntryType.Error);
-                }
+
+                WriteToTrace("Controllers", Ex.Message.ToString(), System.Web.Http.Tracing.TraceLevel.Error);
                 return InternalServerError();
             }
         }
+
+        [Route("docs/test/")]
+        [HttpGet]
+        public IHttpActionResult TestApi()
+        {
+
+            WriteToTrace("Controllers", "Test Success", System.Web.Http.Tracing.TraceLevel.Info);
+            
+            return Ok("Service online");
+        }
+             
     }
 }

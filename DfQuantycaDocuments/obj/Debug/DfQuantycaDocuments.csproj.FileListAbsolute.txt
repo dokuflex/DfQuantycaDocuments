@@ -30,7 +30,8 @@ D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Htt
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.Tracing.xml
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\System.Web.Http.WebHost.xml
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\Newtonsoft.Json.xml
-D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.csprojResolveAssemblyReference.cache
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.csproj.CoreCompileInputs.cache
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.dll
 D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\obj\Debug\DfQuantycaDocuments.pdb
+D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\log4net.dll
+D:\Workspace\Dokuflex\DfQuantycaDocuments\DfQuantycaDocuments\bin\log4net.xml

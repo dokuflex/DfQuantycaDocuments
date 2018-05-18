@@ -1,0 +1,4 @@
+2018-05-03 15:25:57,503 [1] DEBUG DfQuantycaDocuments.Helpers.DfQuantycaTracert -  System.Web.Http.Controllers WebHostHttpControllerTypeResolver GetControllerTypes
+2018-05-03 15:25:59,464 [1] DEBUG DfQuantycaDocuments.Helpers.DfQuantycaTracert -  System.Web.Http.Controllers WebHostHttpControllerTypeResolver GetControllerTypes
+2018-05-03 15:26:49,968 [1] DEBUG DfQuantycaDocuments.Helpers.DfQuantycaTracert -  System.Web.Http.Controllers WebHostHttpControllerTypeResolver GetControllerTypes
+2018-05-03 15:26:50,865 [1] DEBUG DfQuantycaDocuments.Helpers.DfQuantycaTracert -  System.Web.Http.Controllers WebHostHttpControllerTypeResolver GetControllerTypes

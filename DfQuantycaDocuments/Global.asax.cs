@@ -14,6 +14,7 @@ namespace DfQuantycaDocuments
         {
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            Server.MapPath("logs");
         }
     }
 }
