@@ -129,7 +129,19 @@ namespace DfQuantycaDocuments.Controllers
                                                                               && p.Detail.Equals(attributes["companyCIF"])
                                                                               && p.Name.Equals(attributes["companyName"])
                                                                               );
+                if (foldersLevel1 == null)
+                {
+                    WriteToTrace("Controllers", "Invalid input data for companyID, companyCIF or companyName. Path not found in Index.xml", System.Web.Http.Tracing.TraceLevel.Error);
+                    return BadRequest("Invalid input data for companyID, companyCIF or companyName. ");
+                }
+
                 string folderPath = foldersLevel1.FolderLevel2.FirstOrDefault(p => p.Name.Equals(attributes["fiscalExercice"])).Path;
+
+                if (string.IsNullOrWhiteSpace(folderPath))
+                {
+                    WriteToTrace("Controllers", "Invalid input data for fiscalExercice. Path not found in Index.xml", System.Web.Http.Tracing.TraceLevel.Error);
+                    return BadRequest("Invalid input data for fiscalExercice.");
+                }
 
                 if (attributes["documentType"].Equals("Factura Recibida"))
                 {
@@ -141,12 +153,16 @@ namespace DfQuantycaDocuments.Controllers
                 }
 
                 folderPath = ConfigurationManager.AppSettings.Get("ubyquoImportPath") + "\\"+ folderPath;
-                var newFileName = Guid.NewGuid().ToString() + ".pdf";
+                //var newFileName = Guid.NewGuid().ToString() + ".pdf";
+                //var file = files.FirstOrDefault().Value;
 
-                WriteToTrace("Controllers", "Try to create file in: " + folderPath + newFileName, System.Web.Http.Tracing.TraceLevel.Info);
-                File.WriteAllBytes(folderPath + newFileName, files.FirstOrDefault().Value);
 
-                WriteToTrace("Controllers","File upload success", System.Web.Http.Tracing.TraceLevel.Info);
+                var fileName = files.FirstOrDefault().Key;
+
+                WriteToTrace("Controllers", "Try to create file in: " + folderPath + fileName, System.Web.Http.Tracing.TraceLevel.Info);
+                File.WriteAllBytes(folderPath + fileName, files.FirstOrDefault().Value);
+
+                WriteToTrace("Controllers","File "+ fileName + " upload success", System.Web.Http.Tracing.TraceLevel.Info);
                 return Ok();
                 
             }

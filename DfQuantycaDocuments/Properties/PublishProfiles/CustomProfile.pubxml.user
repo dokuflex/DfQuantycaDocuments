@@ -10,10 +10,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DfQuantycaDocuments.dll">
-      <publishTime>05/03/2018 15:31:27</publishTime>
+      <publishTime>06/08/2018 16:43:19</publishTime>
     </File>
     <File Include="bin/DfQuantycaDocuments.pdb">
-      <publishTime>05/03/2018 15:31:27</publishTime>
+      <publishTime>06/08/2018 16:43:19</publishTime>
     </File>
     <File Include="bin/log4net.dll">
       <publishTime>03/08/2017 19:26:22</publishTime>
@@ -184,7 +184,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2018 16:33:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/03/2018 15:31:28</publishTime>
+      <publishTime>06/08/2018 16:43:20</publishTime>
     </File>
   </ItemGroup>
 </Project>
